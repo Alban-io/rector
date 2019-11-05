@@ -25,6 +25,7 @@ final class TypedPropertyRectorTest extends AbstractRectorTestCase
         yield [__DIR__ . '/Fixture/bool_property.php.inc'];
         yield [__DIR__ . '/Fixture/class_property.php.inc'];
         yield [__DIR__ . '/Fixture/nullable_property.php.inc'];
+        yield [__DIR__ . '/Fixture/nullable_property_getter.php.inc'];
         yield [__DIR__ . '/Fixture/static_property.php.inc'];
         yield [__DIR__ . '/Fixture/default_values_for_nullable_iterables.php.inc'];
         yield [__DIR__ . '/Fixture/default_values.php.inc'];
