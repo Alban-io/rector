@@ -8,7 +8,7 @@ use TBolier\RethinkQL\Response\ResponseInterface;
 
 abstract class AbstractTableTest extends AbstractTestCase
 {
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -18,7 +18,7 @@ abstract class AbstractTableTest extends AbstractTestCase
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         $res = $this->r()->db()->tableList()->run();
         if (\is_array($res->getData()) && \in_array('tabletest', $res->getData(), true)) {

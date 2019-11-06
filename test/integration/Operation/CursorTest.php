@@ -3,12 +3,15 @@ declare(strict_types = 1);
 
 namespace TBolier\RethinkQL\IntegrationTest\Operation;
 
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use TBolier\RethinkQL\Response\Cursor;
 use TBolier\RethinkQL\Response\ResponseInterface;
 
 class CursorTest extends AbstractTableTest
 {
-    public function setUp()
+    use ArraySubsetAsserts;
+
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -18,7 +21,7 @@ class CursorTest extends AbstractTableTest
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         parent::tearDown();
 

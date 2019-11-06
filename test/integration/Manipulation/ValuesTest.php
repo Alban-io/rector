@@ -3,11 +3,14 @@ declare(strict_types=1);
 
 namespace TBolier\RethinkQL\IntegrationTest\Manipulation;
 
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use TBolier\RethinkQL\IntegrationTest\Operation\AbstractTableTest;
 use TBolier\RethinkQL\Response\ResponseInterface;
 
 class ValuesTest extends AbstractTableTest
 {
+    use ArraySubsetAsserts;
+
     /**
      * @throws \Exception
      */

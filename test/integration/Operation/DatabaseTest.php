@@ -15,7 +15,7 @@ class DatabaseTest extends AbstractTableTest
                     ->tableList()
                     ->run();
 
-        $this->assertInternalType('array', $res->getData());
+        $this->assertIsArray($res->getData());
     }
 
     /**

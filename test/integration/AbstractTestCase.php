@@ -33,7 +33,7 @@ abstract class AbstractTestCase extends TestCase
      */
     private $connections = [];
 
-    protected function setUp()
+    protected function setUp(): void
     {
         Mockery::getConfiguration()->allowMockingNonExistentMethods(false);
 
@@ -67,7 +67,7 @@ abstract class AbstractTestCase extends TestCase
         return $this->r;
     }
 
-    protected function tearDown()
+    protected function tearDown(): void
     {
         if ($this->r === null) {
             return;

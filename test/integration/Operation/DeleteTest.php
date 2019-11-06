@@ -26,7 +26,7 @@ class DeleteTest extends AbstractTableTest
             ->count()
             ->run();
 
-        $this->assertInternalType('int', $count->getData());
+        $this->assertIsInt($count->getData());
 
         /** @var ResponseInterface $res */
         $res = $this->r()

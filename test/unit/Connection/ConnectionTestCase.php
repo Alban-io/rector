@@ -44,7 +44,7 @@ abstract class ConnectionTestCase extends BaseUnitTestCase
      */
     protected $streamWrapper;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
 

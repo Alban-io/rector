@@ -19,7 +19,7 @@ class EmptyTableTest extends AbstractTableTest
             ->count()
             ->run();
 
-        $this->assertInternalType('int', $count->getData());
+        $this->assertIsInt($count->getData());
 
         $res = $this->r()
             ->table('tabletest')

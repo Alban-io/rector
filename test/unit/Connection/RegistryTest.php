@@ -46,14 +46,14 @@ class RegistryTest extends BaseUnitTestCase
     }
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\ConnectionException
-     * @expectedExceptionMessage The connection fooConnection has already been added
-     * @expectedExceptionCode 400
      * @return void
      * @throws \TBolier\RethinkQL\Connection\ConnectionException
      */
     public function testIfExceptionThrownOnDuplicateConnection(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\ConnectionException');
+        $this->expectExceptionCode('400');
+        $this->expectExceptionMessage('The connection fooConnection has already been added');
         $optionsConfig = [
             'dbname' => 'foo',
         ];
@@ -70,14 +70,14 @@ class RegistryTest extends BaseUnitTestCase
     }
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\ConnectionException
-     * @expectedExceptionMessage The connection fooConnection does not exist
-     * @expectedExceptionCode 400
      * @return void
      * @throws \TBolier\RethinkQL\Connection\ConnectionException
      */
     public function testIfExceptionThrownOnMissingConnection(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\ConnectionException');
+        $this->expectExceptionCode('400');
+        $this->expectExceptionMessage('The connection fooConnection does not exist');
         $registry = new Registry([]);
 
         $registry->getConnection('fooConnection');

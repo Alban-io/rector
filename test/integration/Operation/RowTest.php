@@ -3,12 +3,15 @@ declare(strict_types=1);
 
 namespace TBolier\RethinkQL\IntegrationTest\Operation;
 
+use DMS\PHPUnitExtensions\ArraySubset\ArraySubsetAsserts;
 use TBolier\RethinkQL\Query\Row;
 use TBolier\RethinkQL\Response\ResponseInterface;
 use TBolier\RethinkQL\Types\Term\TermType;
 
 class RowTest extends AbstractTableTest
 {
+    use ArraySubsetAsserts;
+
     /**
      * @throws \Exception
      */

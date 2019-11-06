@@ -18,7 +18,7 @@ class ConnectionTest extends AbstractTestCase
      */
     private $optionsMock;
 
-    public function setUp()
+    public function setUp(): void
     {
         parent::setUp();
 
@@ -47,6 +47,6 @@ class ConnectionTest extends AbstractTestCase
         $res = $this->createConnection('phpunit_default')->connect()->server();
 
         $this->assertEquals(QueryType::SERVER_INFO, $res->getType());
-        $this->assertInternalType('string', $res->getData()['name']);
+        $this->assertIsString($res->getData()['name']);
     }
 }

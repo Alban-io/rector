@@ -24,12 +24,12 @@ class HandshakeTest extends BaseUnitTestCase
     }
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\Socket\Exception
-     * @expectedExceptionMessage Not connected
      * @return void
      */
     public function testExceptionThrownOnStreamNotWritable(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\Socket\Exception');
+        $this->expectExceptionMessage('Not connected');
         $stream = \Mockery::mock(StreamInterface::class);
         $stream->shouldReceive('isWritable')->atLeast()->andReturn(false);
         $stream->shouldReceive('close');
@@ -38,12 +38,12 @@ class HandshakeTest extends BaseUnitTestCase
     }
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\Socket\Exception
-     * @expectedExceptionMessage Foobar
      * @return void
      */
     public function testExceptionThrownOnError(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\Socket\Exception');
+        $this->expectExceptionMessage('Foobar');
         $stream = \Mockery::mock(StreamInterface::class);
         $stream->shouldReceive('isWritable')->atLeast()->andReturn(true);
         $stream->shouldReceive('close');
@@ -54,12 +54,12 @@ class HandshakeTest extends BaseUnitTestCase
     }
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\Socket\Exception
-     * @expectedExceptionMessage Foobar
      * @return void
      */
     public function testExceptionThrownOnVerifyProtocolWithError(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\Socket\Exception');
+        $this->expectExceptionMessage('Foobar');
         $stream = \Mockery::mock(StreamInterface::class);
         $stream->shouldReceive('isWritable')->atLeast()->andReturn(true);
         $stream->shouldReceive('close');
@@ -70,12 +70,12 @@ class HandshakeTest extends BaseUnitTestCase
     }
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\Socket\Exception
-     * @expectedExceptionMessage Unsupported protocol version.
      * @return void
      */
     public function testExceptionThrownOnInvalidProtocolVersion(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\Socket\Exception');
+        $this->expectExceptionMessage('Unsupported protocol version.');
         $stream = \Mockery::mock(StreamInterface::class);
         $stream->shouldReceive('isWritable')->atLeast()->andReturn(true);
         $stream->shouldReceive('close');
@@ -88,12 +88,12 @@ class HandshakeTest extends BaseUnitTestCase
 
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\Socket\Exception
-     * @expectedExceptionMessage Woops!
      * @return void
      */
     public function testExceptionThrownOnProtocolError(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\Socket\Exception');
+        $this->expectExceptionMessage('Woops!');
         /** @var MockInterface $stream */
         $stream = \Mockery::mock(StreamInterface::class);
         $stream->shouldReceive('isWritable')->atLeast()->andReturn(true);

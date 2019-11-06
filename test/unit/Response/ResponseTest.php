@@ -1,7 +1,7 @@
 <?php
 declare(strict_types = 1);
 
-namespace TBolier\RethinkQL\UnitTest\Query;
+namespace TBolier\RethinkQL\UnitTest\Response;
 
 use TBolier\RethinkQL\Response\Response;
 use TBolier\RethinkQL\UnitTest\BaseUnitTestCase;

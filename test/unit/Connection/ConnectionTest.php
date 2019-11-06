@@ -22,13 +22,13 @@ class ConnectionTest extends ConnectionTestCase
     }
 
     /**
-     * @expectedException \TBolier\RethinkQL\Connection\ConnectionException
-     * @expectedExceptionMessage Test exception
      * @return void
      * @throws ConnectionException
      */
     public function testConnectThrowsCorrectException(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\ConnectionException');
+        $this->expectExceptionMessage('Test exception');
         $this->handshake->shouldReceive('hello')->once()->andThrow(
             new ConnectionException('Test exception')
         );
@@ -36,12 +36,10 @@ class ConnectionTest extends ConnectionTestCase
         $this->connection->connect();
     }
 
-    /**
-     * @expectedException \TBolier\RethinkQL\Connection\ConnectionException
-     * @expectedExceptionMessage No open stream, please connect first
-     */
     public function testQueryWithoutConnection(): void
     {
+        $this->expectException('TBolier\RethinkQL\Connection\ConnectionException');
+        $this->expectExceptionMessage('No open stream, please connect first');
         $this->connection->writeQuery(1223456789, \Mockery::mock(MessageInterface::class));
     }
 
@@ -140,7 +138,7 @@ class ConnectionTest extends ConnectionTestCase
         $res = $this->connection->server();
 
         $this->assertEquals(QueryType::SERVER_INFO, $res->getType());
-        $this->assertInternalType('array', $res->getData());
+        $this->assertIsArray($res->getData());
         $this->assertEquals(['yolo'], $res->getData());
     }
 
